@@ -1,0 +1,19 @@
+name: CSI2115 Linux kernel
+
+on: [push]
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Clone linux OS
+      shell: bash
+      run: |
+        commit_id = `git rev-parse --short HEAD`
+        wget https://github.com/PetrasRec/linux/archive/${{commit_id}}.zip
