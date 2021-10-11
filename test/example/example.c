@@ -742,7 +742,7 @@ static void loop(void)
       setup_test();
       execute_one();
       close_fds();
-      exit(1);
+      exit(0);
     }
     int status = 0;
     uint64_t start = current_time_ms();
