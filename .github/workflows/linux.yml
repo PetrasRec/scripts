@@ -16,7 +16,7 @@ jobs:
       shell: bash
       run: |
         echo "current_commit_id="`git rev-parse --short HEAD:linux` >> $GITHUB_ENV
-        if [ $env.current_commit_id -ne $env.commit_id ]
+        if [ "$env.current_commit_id" -ne "$env.commit_id" ]
         then
           echo "commit_id="$env.current_commit_id >> $GITHUB_ENV
         fi
