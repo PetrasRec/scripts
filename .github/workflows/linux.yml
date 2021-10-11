@@ -1,4 +1,4 @@
-name: CSI2115 Linux kernel
+name: CSI2115 Linux kernel compiles
 
 on: [push]
 

@@ -1,4 +1,4 @@
-name: CSI2115 Linux kernel
+name: Testing linux kernel
 
 on: 
   push:
