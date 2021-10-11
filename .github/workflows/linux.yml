@@ -12,14 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Go to linux rep
-      shell: bash
-      run: cd linux
     - name: Download linux
       shell: bash
       run: |
-        wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD`".zip" -O ..
+        wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD:linux`".zip" -O newLinuxOS
     - name: Come back to scripts directory
       shell: bash
-      run: echo `cd .. && ls`
+      run: echo `ls`
 
