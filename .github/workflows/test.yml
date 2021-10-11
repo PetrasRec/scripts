@@ -14,5 +14,7 @@ jobs:
 
     - name: Test the scripts repo
       shell: bash
-      run: make -C test
+      run: |
+        make -C test
+        ./test/example/example.exe
 
