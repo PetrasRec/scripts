@@ -14,7 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+    - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
     - name: Install Dependencies
       shell: bash
       run: |
