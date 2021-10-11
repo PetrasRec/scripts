@@ -1,9 +1,6 @@
-name: CSI2115 Linux kernel compilation check
+name: CSI2115 Linux kernel compilation 
 
-on: 
-  push:
-    paths:
-      - 'linux/**'
+on: [push]
 
 env:
   BUILD_TYPE: Debug
@@ -11,22 +8,24 @@ env:
 jobs:
   build:
     runs-on: ubuntu-20.04
-dispatch:
+
     steps:
     - uses: actions/checkout@v2
-    - name: send dispatch
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT }}
-          repository: PetrasRec/Linux
-          event-type: RepoAevent
+
+    - name: Check commit number
+      shell: bash
+      run: |
+        echo "current_commit_id="`git rev-parse --short HEAD:linux` >> $GITHUB_ENV
+        if [ $current_commit_id -nq $commit_id ]
+          echo "commit_id="$current_commit_id>> $GITHUB_ENV
+        fi
     - name: Install Dependencies
       shell: bash
       run: |
         ./install-deps.sh
     - name: Download linux
       shell: bash
-      run: wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD:linux`".zip" -O newLinuxOS.zip
+      run: wget "https://github.com/PetrasRec/linux/archive/"$commit_id".zip" -O newLinuxOS.zip
     - name: Unzip linux
       shell: bash
       run: |
