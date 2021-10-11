@@ -20,11 +20,7 @@ jobs:
       run: |
         sudo apt-get install unzip
         unzip newLinuxOS.zip -d newLinuxOS
-    - name: Check unzipped contents
-      shell: bash
-      run: |
-        echo `ls newLinuxOS`
     - name: Build linux
       shell: bash
-      run: ./build-linux.sh newLinuxOS
+      run: ./build-linux.sh newLinuxOS tinyconfig
 
