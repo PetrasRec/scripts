@@ -11,22 +11,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Go to linux repository
-      shell: bash
-      run: cd linux
-    - name: Save commit id
-      shell: bash
-      run: export commit_id=git rev-parse --short HEAD
-    - name: Come back to scripts directory
-      shell: bash
-      run: cd ..
-    - name: Check files in home dir
-      shell: bash
-      run: echo `git --git-dir ./linux rev-parse --short HEAD`
-    - name: Check if id is there
-      shell: bash
-      run: echo `cat ./linux/commit_id.txt`
     - name: Clone linux OS
       shell: bash
       run: |
