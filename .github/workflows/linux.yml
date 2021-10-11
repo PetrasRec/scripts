@@ -12,14 +12,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Go to linux dir
+    - name: Go to linux repository
       shell: bash
       run: cd linux
-    - name: Check files
+    - name: Save commit id
       shell: bash
-      run: |
-        ls
+      run: git rev-parse --short HEAD >> ../commit_id.txt
+    - name: Come back to scripts directory
+      shell: bash
+      run: cd ..
     - name: Clone linux OS
       shell: bash
       run: |
-        wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD`".zip"
+        wget "https://github.com/PetrasRec/linux/archive/"`cat commit_id.txt`".zip"
