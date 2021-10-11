@@ -31,5 +31,5 @@ jobs:
       shell: bash
       run: |
         cd ./linux
-        export commit_id=git rev-parse --short HEAD
-        wget "https://github.com/PetrasRec/linux/archive/"${{commit_id}}".zip"
+        commit_id=git rev-parse --short HEAD
+        wget "https://github.com/PetrasRec/linux/archive/"${commit_id}".zip"
