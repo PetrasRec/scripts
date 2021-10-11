@@ -16,7 +16,7 @@ jobs:
       shell: bash
       run: |
         cd linux
-        ls
+        echo `ls`
         git branch
         git rev-parse --short HEAD
         wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD`".zip"
