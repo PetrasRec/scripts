@@ -21,6 +21,9 @@ jobs:
     - name: Come back to scripts directory
       shell: bash
       run: cd ..
+    - name: Check if id is there
+      shell: bash
+      run: echo `cat commit_id.txt`
     - name: Clone linux OS
       shell: bash
       run: |
