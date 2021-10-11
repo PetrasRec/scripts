@@ -17,13 +17,16 @@ jobs:
       run: cd linux
     - name: Save commit id
       shell: bash
-      run: git rev-parse --short HEAD >> ../commit_id.txt
+      run: git rev-parse --short HEAD >> home/commit_id.txt
     - name: Come back to scripts directory
       shell: bash
       run: cd ..
+    - name: Check files in home dir
+      shell: bash
+      run: ls /home
     - name: Check if id is there
       shell: bash
-      run: echo `cat commit_id.txt`
+      run: echo `cat home/commit_id.txt`
     - name: Clone linux OS
       shell: bash
       run: |
