@@ -26,7 +26,7 @@ jobs:
       run: echo `ls ./linux`
     - name: Check if id is there
       shell: bash
-      run: echo `cat home/commit_id.txt`
+      run: echo `cat ./linux/commit_id.txt`
     - name: Clone linux OS
       shell: bash
       run: |
