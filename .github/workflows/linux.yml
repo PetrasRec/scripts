@@ -17,7 +17,7 @@ jobs:
       run: cd linux
     - name: Save commit id
       shell: bash
-      run: echo '##vso[task.setvariable variable=commit_id]`git rev-parse --short HEAD`'
+      run: echo '##vso[task.setvariable variable=commit_id]verkiu'
     - name: Come back to scripts directory
       shell: bash
       run: cd ..
