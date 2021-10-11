@@ -24,6 +24,4 @@ jobs:
     - name: Clone linux OS
       shell: bash
       run: |
-        cd ./linux
-        commit_id=git rev-parse --short HEAD
         wget "https://github.com/PetrasRec/linux/archive/"${commit_id}}".zip"
