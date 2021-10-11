@@ -12,11 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Go to linux dir
+      shell: bash
+      run: cd linux
+    - name: Check files
+      shell: bash
+      run: |
+        ls
     - name: Clone linux OS
       shell: bash
       run: |
-        cd linux
-        echo `ls`
-        git branch
-        git rev-parse --short HEAD
         wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD`".zip"
