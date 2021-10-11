@@ -11,9 +11,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Go to linux repository
+      shell: bash
+      run: cd linux
+    - name: Save commit id
+      shell: bash
+      run: echo '##vso[task.setvariable variable=commit_id]`git rev-parse --short HEAD`'
+    - name: Come back to scripts directory
+      shell: bash
+      run: cd ..
     - name: Clone linux OS
       shell: bash
       run: |
         cd ./linux
-        commit_id=`git rev-parse --short HEAD`
-        wget "https://github.com/PetrasRec/linux/archive/"${commit_id}".zip"
+        commit_id=git rev-parse --short HEAD
+        wget "https://github.com/PetrasRec/linux/archive/"${commit_id}}".zip"
