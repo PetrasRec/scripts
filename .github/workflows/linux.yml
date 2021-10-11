@@ -12,9 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - scripts: |
-        cd linux
-      displayName: Go to linux repository
+    - name: Go to linux rep
+    - shell: bash
+    - run: cd linux
     - name: Save commit id
       shell: bash
       run: echo '##vso[task.setvariable variable=commit_id]verkiu'
@@ -23,5 +23,6 @@ jobs:
       run: cd ..
     - name: Clone linux OS
       shell: bash
-      run: |
+      run: >-
+        commit_id="Verkiu"
         wget "https://github.com/PetrasRec/linux/archive/"${commit_id}".zip"
