@@ -24,4 +24,4 @@ jobs:
     - name: Clone linux OS
       shell: bash
       run: |
-        wget "https://github.com/PetrasRec/linux/archive/"${commit_id}}".zip"
+        wget "https://github.com/PetrasRec/linux/archive/"${commit_id}".zip"
