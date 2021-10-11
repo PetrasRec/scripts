@@ -18,8 +18,9 @@ jobs:
         echo "current_commit_id="`git rev-parse --short HEAD:linux` >> $GITHUB_ENV
         if [ $env.current_commit_id -nq $env.commit_id ]
         then
-          echo "commit_id="$env.current_commit_id>> $GITHUB_ENV
+          echo "commit_id="$env.current_commit_id >> $GITHUB_ENV
         fi
+        echo $env.current_commit_id
     - name: Install Dependencies
       shell: bash
       run: |
