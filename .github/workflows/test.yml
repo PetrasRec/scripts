@@ -19,5 +19,4 @@ jobs:
       shell: bash
       run: |
         make -C test
-        ./test/example/example.exe
 
