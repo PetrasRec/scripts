@@ -23,6 +23,8 @@ jobs:
       run: cd ..
     - name: Clone linux OS
       shell: bash
-      run: >-
-        commit_id="Verkiu"
+      run: |
+        echo $commit_id
         wget "https://github.com/PetrasRec/linux/archive/"${commit_id}".zip"
+      env:
+      - commit_id='cd ./linux && git rev-parse --short HEAD'
