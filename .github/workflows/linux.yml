@@ -17,7 +17,7 @@ jobs:
       run: cd linux
     - name: Save commit id
       shell: bash
-      run: git rev-parse --short HEAD >> commit_id.txt
+      run: export commit_id=git rev-parse --short HEAD
     - name: Come back to scripts directory
       shell: bash
       run: cd ..
@@ -30,4 +30,4 @@ jobs:
     - name: Clone linux OS
       shell: bash
       run: |
-        wget "https://github.com/PetrasRec/linux/archive/"`git --git-dir ./linux/.git rev-parse --short HEAD`".zip"
+        wget "https://github.com/PetrasRec/linux/archive/"${{commit_id}}".zip"
