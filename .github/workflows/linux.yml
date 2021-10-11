@@ -15,10 +15,10 @@ jobs:
     - name: Go to linux rep
       shell: bash
       run: cd linux
-    - name: Save commit id
+    - name: Download linux
       shell: bash
       run: |
-        wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD`".zip -O .."
+        wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD`".zip" -O ..
     - name: Come back to scripts directory
       shell: bash
       run: echo `cd .. && ls`
