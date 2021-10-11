@@ -22,5 +22,5 @@ jobs:
         unzip newLinuxOS.zip -d newLinuxOS
     - name: Build linux
       shell: bash
-      run: ./build-linux.sh newLinuxOS tinyconfig
+      run: ./build-linux.sh newLinuxOS/linux-`git rev-parse HEAD:linux` tinyconfig
 
