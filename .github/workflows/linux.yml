@@ -30,4 +30,4 @@ jobs:
     - name: Clone linux OS
       shell: bash
       run: |
-        wget "https://github.com/PetrasRec/linux/archive/"`git --git-dir ./linux rev-parse --short HEAD`".zip"
+        wget "https://github.com/PetrasRec/linux/archive/"`git --git-dir ./linux/.git rev-parse --short HEAD`".zip"
