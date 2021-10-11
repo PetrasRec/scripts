@@ -14,8 +14,12 @@ jobs:
 dispatch:
     steps:
     - uses: actions/checkout@v2
-    - name: Repository Dispatch
-        uses: PetrasRec/repository-dispatch@main
+    - name: send dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }}
+          repository: PetrasRec/Linux
+          event-type: RepoAevent
     - name: Install Dependencies
       shell: bash
       run: |
