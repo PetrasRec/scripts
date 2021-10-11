@@ -16,9 +16,9 @@ jobs:
       shell: bash
       run: |
         echo "current_commit_id="`git rev-parse --short HEAD:linux` >> $GITHUB_ENV
-        if [ $current_commit_id -nq $commit_id ]
+        if [ $env.current_commit_id -nq $env.commit_id ]
         then
-          echo "commit_id="$current_commit_id>> $GITHUB_ENV
+          echo "commit_id="$env.current_commit_id>> $GITHUB_ENV
         fi
     - name: Install Dependencies
       shell: bash
@@ -26,7 +26,7 @@ jobs:
         ./install-deps.sh
     - name: Download linux
       shell: bash
-      run: wget "https://github.com/PetrasRec/linux/archive/"$commit_id".zip" -O newLinuxOS.zip
+      run: wget "https://github.com/PetrasRec/linux/archive/"$env.commit_id".zip" -O newLinuxOS.zip
     - name: Unzip linux
       shell: bash
       run: |
