@@ -17,14 +17,9 @@ jobs:
       run: cd linux
     - name: Save commit id
       shell: bash
-      run: echo '##vso[task.setvariable variable=commit_id]verkiu'
+      run: |
+        wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD`".zip -O .."
     - name: Come back to scripts directory
       shell: bash
-      run: cd ..
-    - name: Clone linux OS
-      shell: bash
-      run: |
-        echo $commit_id
-        wget "https://github.com/PetrasRec/linux/archive/"${commit_id}".zip"
-      env:
-      - commit_id='cd ./linux && git rev-parse --short HEAD'
+      run: echo `cd .. && ls`
+
