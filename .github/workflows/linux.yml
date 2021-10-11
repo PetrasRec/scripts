@@ -14,12 +14,17 @@ jobs:
 
     - name: Check commit number
       run: |
+        echo "action_state=yellow" >> $GITHUB_ENV
         echo "current_commit_id=aaaaaaaaaaaaaaaaaaaaaaa" >> $GITHUB_ENV
         if [ "$current_commit_id" != "$commit_id" ]
         then
           echo "commit_id="$current_commit_id >> $GITHUB_ENV
         fi
         echo "${{ env.current_commit_id }}"
+    - name: Use the value
+      id: step_two
+      run: |
+        echo "${{ env.action_state }}" # This will output 'yellow'
     - name: Install Dependencies
       shell: bash
       run: |
