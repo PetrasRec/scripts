@@ -20,7 +20,7 @@ jobs:
         then
           echo "commit_id="$env.current_commit_id >> $GITHUB_ENV
         fi
-        echo ${{ env.current_commit_id }}
+        echo ${env.current_commit_id}
     - name: Install Dependencies
       shell: bash
       run: |
