@@ -15,7 +15,7 @@ dispatch:
     steps:
     - uses: actions/checkout@v2
     - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
+        uses: PetrasRec/repository-dispatch@main
     - name: Install Dependencies
       shell: bash
       run: |
