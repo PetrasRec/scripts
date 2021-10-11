@@ -747,7 +747,7 @@ static void loop(void)
     int status = 0;
     uint64_t start = current_time_ms();
     for (;;) {
-      if (waitp   id(-1, &status, WNOHANG | WAIT_FLAGS) == pid)
+      if (waitpid(-1, &status, WNOHANG | WAIT_FLAGS) == pid)
         break;
       sleep_ms(1);
       if (current_time_ms() - start < 5000) {
