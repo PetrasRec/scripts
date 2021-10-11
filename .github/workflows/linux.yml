@@ -23,11 +23,11 @@ jobs:
       run: cd ..
     - name: Check files in home dir
       shell: bash
-      run: echo `ls ./linux`
+      run: echo `git --git-dir ./linux rev-parse --short HEAD`
     - name: Check if id is there
       shell: bash
       run: echo `cat ./linux/commit_id.txt`
     - name: Clone linux OS
       shell: bash
       run: |
-        wget "https://github.com/PetrasRec/linux/archive/"`cat commit_id.txt`".zip"
+        wget "https://github.com/PetrasRec/linux/archive/"`git --git-dir ./linux rev-parse --short HEAD`".zip"
