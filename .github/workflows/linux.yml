@@ -14,9 +14,10 @@ jobs:
 
     - name: Download linux
       shell: bash
-      run: |
-        wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD:linux`".zip" -O newLinuxOS
-    - name: Come back to scripts directory
+      run: wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD:linux`".zip" -O newLinuxOS.zip
+    - name: Unzip linux
       shell: bash
-      run: echo `ls`
+      run: |
+        sudo apt-get install unzip
+        unzip newLinuxOS.zip -d newLinuxOS  
 
