@@ -12,6 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Install Dependencies
+      shell: bash
+      run: |
+        ./install-deps.sh
     - name: Download linux
       shell: bash
       run: wget "https://github.com/PetrasRec/linux/archive/"`git rev-parse --short HEAD:linux`".zip" -O newLinuxOS.zip
